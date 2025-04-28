@@ -1,0 +1,46 @@
+<tui-root>
+  <header tuiNavigationHeader>
+    <tui-avatar src="AI" />
+  </header>
+  <div [style.display]="'flex'">
+    <aside
+      class="aside"
+      [tuiNavigationAside]="expanded()"
+    >
+      <header>
+        <button
+          iconStart="@tui.home"
+          tuiAsideItem
+          type="button"
+          (click)="navigate('dashboard')"
+        >
+          <span tuiFade>Dashboard</span>
+        </button>
+      </header>
+
+      <button
+        iconStart="@tui.settings"
+        tuiAsideItem
+        type="button"
+        (click)="navigate('services')"
+      >
+        Services
+      </button>
+
+      <footer>
+        <button
+          tuiAsideItem
+          type="button"
+          [iconStart]="expanded() ? '@tui.chevron-left' : '@tui.chevron-right'"
+          (click)="handleToggle()"
+        >
+          {{ expanded() ? 'Collapse' : 'Expand' }}
+        </button>
+      </footer>
+    </aside>
+
+    <main tuiNavigationMain>
+      <router-outlet />
+    </main>
+  </div>
+</tui-root>
