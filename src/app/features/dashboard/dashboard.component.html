@@ -1,1 +1,7 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <h2>Xác suất sự cố trong 30 phút tới</h2>
+  <div echarts [options]="fbtChartOption()" [loading]="loadFbtStatus() === HttpStatus.LOADING" class="chart" (chartClick)="onFbtChartClick($event)"></div>
+
+  <h2>Xác suất sự cố theo service</h2>
+  <div echarts [options]="fbsChartOption()" [loading]="loadFbsStatus() === HttpStatus.LOADING" class="chart" (chartClick)="onFbsChartClick($event)"></div>
+</div>

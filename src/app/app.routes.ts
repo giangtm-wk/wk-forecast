@@ -18,9 +18,17 @@ export const routes: Routes = [
         loadComponent: () => import('./features/services/service-list/service-list.component').then(m => m.ServiceListComponent),
       },
       {
-        path: 'services/:id',
+        path: ':id',
         loadComponent: () => import('./features/services/service-detail/service-detail.component').then(m => m.ServiceDetailComponent),
       }
     ]
+  },
+  {
+    path: 'prediction/:id',
+    loadComponent: () => import('./features/prediction/prediction.component').then(m => m.PredictionComponent),
+  },
+  {
+    path: '**',
+    redirectTo: 'dashboard',
   }
 ];
